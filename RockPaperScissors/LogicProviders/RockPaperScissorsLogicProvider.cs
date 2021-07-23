@@ -8,17 +8,37 @@ namespace RockPaperScissors.LogicProviders
 {
     public class RockPaperScissorsLogicProvider
     {
-        //generate random selection
         public Weapon GetRandomSelection()
         {
-            return Weapon.Paper;
+            Array values = Enum.GetValues(typeof(Weapon));
+            Random random = new Random();
+            Weapon randomSelection = (Weapon)values.GetValue(random.Next(values.Length));
+
+            return randomSelection;
         } 
 
 
-        //get result
-        public GameResult GetPlayerResult(Weapon player, Weapon computer)
+        public GameResult GetPlayerResult(Weapon playerSelection, Weapon computerSelection)
         {
-            return GameResult.Lose;
+            if (playerSelection.Equals(computerSelection))
+            {
+                return GameResult.Draw;
+            }
+
+            if(playerSelection == Weapon.Rock && computerSelection == Weapon.Paper)
+            {
+                return GameResult.Lose;
+            }
+            else if(playerSelection == Weapon.Scissors && computerSelection == Weapon.Rock)
+            {
+                return GameResult.Lose;
+            } 
+            else if(playerSelection == Weapon.Paper && computerSelection == Weapon.Scissors)
+            {
+                return GameResult.Lose;
+            }
+
+            return GameResult.Win;
         }
     }
 }
