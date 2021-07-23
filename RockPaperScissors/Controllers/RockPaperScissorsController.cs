@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RockPaperScissors.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,18 @@ namespace RockPaperScissors.Controllers
 
         [HttpGet]
         public IActionResult Leaderboard()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Result()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Result(Weapon choice)
         {
             return View();
         }
