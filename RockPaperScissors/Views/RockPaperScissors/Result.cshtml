@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model RockPaperScissors.ViewModels.GameViewModel
+
+<h1>@Model.PlayerSelectionString</h1>
+
+<div id="results-view">
+    <p>Player Selection: @Model.PlayerSelection.ToString()</p>
+    <p>Computer Selection: @Model.ComputerSelection.ToString()</p>
+    <p>Result: @Model.Result.ToString()</p>
+</div>
+
+
+<a asp-controller="RockPaperScissors" asp-action="Index">Play Again</a>
